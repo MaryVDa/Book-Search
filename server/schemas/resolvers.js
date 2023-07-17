@@ -16,7 +16,7 @@ const resolvers = {
     },
     Mutation: {
         login: async (parent, {email, password}) => {
-            const user = await User.findOne({email});
+            const user = await user.findOne({email});
 
             if(!user) {
                 throw new AuthenticationError('Incorrect credentials');
@@ -31,28 +31,37 @@ const resolvers = {
 
             return {token, user};
         },
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
+        addUser: async (parent, {username, email, password}) => {
+            const user = await User.create({username, email,password});
             const token = signToken(user);
 
             return {token, user};
         },
         saveBook: async (parent, {input}, context) => {
             if(context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
-                    {_id: context.user._id},
-                    {$addToSet: {savedBooks: input}},
-                    {new: true, runValidators: true}
-                );
-                return updatedUser;
+                try {
+                    const updatedUser = await User.findByIdAndUpdate(
+                        {_id: context.user._id},
+                        {$addToSet: {savedBooks: input}},
+                        {new: true, runValidators: true}
+                    );
+    
+                    console.log(updatedUser)
+
+                    return updatedUser;
+                } catch(err) {
+                    console.log(err);
+                    throw new AuthenticationError('Something went wrong!');
+
+                }
             }
             throw new AuthenticationError('Please log in');
         }, 
-        removeBook: async (parent, {bookId}, context) => {
+        removeBook: async (parent, {book}, context) => {
             if(context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     {_id: context.user._id},
-                    {$pull: {savedBooks: {bookId: bookId}}},
+                    {$pull: {savedBooks: book}},
                     {new: true}
                 );
                 return updatedUser;
