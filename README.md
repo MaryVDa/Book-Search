@@ -3,6 +3,9 @@
 ## Description
 An app that lets the user search for books and save them to a list. This app uses the latest technologies and was built using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API.
 
+## Screenshot
+![image](https://github.com/MaryVDa/Book-Search/assets/122223756/bb0f4892-d6f9-4614-abdd-ecd3095cb78d)
+
 ## User Story
 AS AN avid reader   
 I WANT to search for new books to read    
@@ -38,10 +41,6 @@ WHEN I click on the Remove button on a book
 THEN that book is deleted from my saved books list   
 WHEN I click on the Logout button   
 THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button   
-
-## Screenshot
-![image](https://github.com/MaryVDa/Book-Search/assets/122223756/46584af6-18f7-44bc-9ac6-611b82d2588b)
-
 
 ## Deployed App
 Deployed using Heroku: https://book-search-mvd-1440302f052d.herokuapp.com/ 
