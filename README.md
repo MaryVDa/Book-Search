@@ -1,6 +1,7 @@
 # Book Search Engine
 
 ## Description
+An app that lets the user search for books and save them to a list. This app uses the latest technologies and was built using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API.
 
 ## User Story
 AS AN avid reader   
@@ -38,11 +39,15 @@ THEN that book is deleted from my saved books list
 WHEN I click on the Logout button   
 THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button   
 
+## Screenshot
+
+
 ## Deployed App
-Deployed using Heroku:   
+Deployed using Heroku: https://book-search-mvd-1440302f052d.herokuapp.com/ 
 
 ## GitHub
 https://github.com/MaryVDa/Book-Search
 
 ## Credits
 Starter code by: https://github.com/coding-boot-camp/solid-broccoli
+I also got help from a tutor and TA
